@@ -1,0 +1,199 @@
+<ion-content scroll="false">
+  <div class="coreback">
+    <div class="infocard">
+
+      <div class="selectedcritter" *ngIf="selectedCritter" [ngClass]="{'leftContents' : handRight }">
+        <img src="assets/critters/{{selectedCritter}}.jpg" class="logofront" (click)="unSetupKeyboardMode()">
+        <div class="selectcritname">{{selectedCritter}}</div>
+
+        <div class="handselect" *ngIf="!selectedHands">
+
+
+          <div class="leftsidebox">
+            <p>I'M LEFT HANDED</p>
+            <img src="assets/hand.png" class="hand" (click)="leftHandClick()">
+          </div>
+
+          <div class="rightsidebox">
+            <p>I'M RIGHT HANDED</p>
+            <img src="assets/hand.png" class="hand" (click)="rightHandClick()">
+          </div>
+        </div>
+
+        <div *ngIf="selectedHands">
+          <input *ngIf="!setupKeypad" placeholder="What's your name?" value="{{theValue}}" (click)="setupKeyboardMode()"/>
+
+
+          <div class="inputholders" *ngIf="setupKeypad">
+            <h2 *ngIf="!selectKeyAgain">Please select a four number pin</h2>
+            <h2 *ngIf="selectKeyAgain">Confirm your pin by retyping it</h2>
+            <span class="inputbox animated" [ngClass]="{'tada': fillcounter == 5, 'jello': fillcounter == 1}" [style.border] = "fillcounter > 0 ? '2px solid #E3C39D' : '2px dotted #E3C39D'" [style.background] = "fillcounter > 0 ? '#E3C39D' : 'none'"></span>
+            <span class="inputbox animated" [ngClass]="{'tada': fillcounter == 5, 'jello': fillcounter == 2}" [style.border] = "fillcounter > 1 ? '2px solid #E3C39D' : '2px dotted #E3C39D'" [style.background] = "fillcounter > 1 ? '#E3C39D' : 'none'"></span>
+            <span class="inputbox animated" [ngClass]="{'tada': fillcounter == 5, 'jello': fillcounter == 3}" [style.border] = "fillcounter > 2 ? '2px solid #E3C39D' : '2px dotted #E3C39D'" [style.background] = "fillcounter > 2 ? '#E3C39D' : 'none'"></span>
+            <span class="inputbox animated" [ngClass]="{'tada': fillcounter == 5}" [style.border] = "fillcounter > 3 ? '2px solid #E3C39D' : '2px dotted #E3C39D'" [style.background] = "fillcounter > 3 ? '#E3C39D' : 'none'"></span>
+          </div>
+
+
+          <br />
+          <button class="back" (click)="backToHand()" *ngIf="!setupKeypad">Back</button>
+          <button class="continue" (click)="KeypadMode()" *ngIf="!setupKeypad">Continue</button>
+        </div>
+
+      </div>
+
+
+      <div class="keypad" [ngClass]="{'uppershift' : hitshift, 'rightKeytab' : !handRight}" *ngIf="setupKeypad">
+        <div class="KeyboardRow">
+            <span class="KeyboardKey" (click)="keyClick('1')" [style.background] = "tkeyClick == 1 ? '#dff9fb' : '#fff'">1</span>
+            <span class="KeyboardKey" (click)="keyClick('2')" [style.background] = "tkeyClick == 2 ? '#dff9fb' : '#fff'">2</span>
+            <span class="KeyboardKey" (click)="keyClick('3')" [style.background] = "tkeyClick == 3 ? '#dff9fb' : '#fff'">3</span>
+        </div>
+        <div class="KeyboardRow">
+            <span class="KeyboardKey" (click)="keyClick('4')" [style.background] = "tkeyClick == 4 ? '#dff9fb' : '#fff'">4</span>
+            <span class="KeyboardKey" (click)="keyClick('5')" [style.background] = "tkeyClick == 5 ? '#dff9fb' : '#fff'">5</span>
+            <span class="KeyboardKey" (click)="keyClick('6')" [style.background] = "tkeyClick == 6 ? '#dff9fb' : '#fff'">6</span>
+        </div>
+        <div class="KeyboardRow">
+            <span class="KeyboardKey" (click)="keyClick('7')" [style.background] = "tkeyClick == 7 ? '#dff9fb' : '#fff'">7</span>
+            <span class="KeyboardKey" (click)="keyClick('8')" [style.background] = "tkeyClick == 8 ? '#dff9fb' : '#fff'">8</span>
+            <span class="KeyboardKey" (click)="keyClick('9')" [style.background] = "tkeyClick == 9 ? '#dff9fb' : '#fff'">9</span>
+        </div>
+        <div class="KeyboardRow">
+            <span class="KeyboardKey" (click)="keyClick('0')"  [style.background] = "tkeyClick == 0 ? '#dff9fb' : '#fff'">0</span>
+        </div>
+      </div>
+
+      <div class="mainkeyboard" [ngClass]="{'uppershift' : hitshift, 'rightKeyboard' : handRight}" *ngIf="setupKeyboard">
+
+        <div *ngIf="specialkeys">
+          <div class="KeyboardRow">
+              <span class="KeyboardKey" (click)="useKeyboard('0')">0</span>
+              <span class="KeyboardKey" (click)="useKeyboard('1')">1</span>
+              <span class="KeyboardKey" (click)="useKeyboard('2')">2</span>
+              <span class="KeyboardKey" (click)="useKeyboard('3')">3</span>
+              <span class="KeyboardKey" (click)="useKeyboard('4')">4</span>
+              <span class="KeyboardKey" (click)="useKeyboard('5')">5</span>
+          </div>
+          <div class="KeyboardRow">
+              <span class="KeyboardKey" (click)="useKeyboard('6')">6</span>
+              <span class="KeyboardKey" (click)="useKeyboard('7')">7</span>
+              <span class="KeyboardKey" (click)="useKeyboard('8')">8</span>
+              <span class="KeyboardKey" (click)="useKeyboard('9')">9</span>
+              <span class="KeyboardKey" (click)="useKeyboard('!')">!</span>
+              <span class="KeyboardKey" (click)="useKeyboard('%')">%</span>
+          </div>
+          <div class="KeyboardRow">
+              <span class="KeyboardKey" (click)="useKeyboard('')">"</span>
+              <span class="KeyboardKey" (click)="useKeyboard(':')">:</span>
+              <span class="KeyboardKey" (click)="useKeyboard(';')">;</span>
+              <span class="KeyboardKey" (click)="useKeyboard('^')">^</span>
+              <span class="KeyboardKey" (click)="useKeyboard('&')">&</span>
+              <span class="KeyboardKey" (click)="useKeyboard('*')">*</span>
+          </div>
+          <div class="KeyboardRow">
+              <span class="KeyboardKey" (click)="useKeyboard('(')">[</span>
+              <span class="KeyboardKey" (click)="useKeyboard(')')">]</span>
+              <span class="KeyboardKey" (click)="useKeyboard('-')">-</span>
+              <span class="KeyboardKey" (click)="useKeyboard('+')">+</span>
+              <span class="KeyboardKey" (click)="useKeyboard('/')">/</span>
+              <span class="KeyboardKey" (click)="useKeyboard('=')">=</span>
+          </div>
+
+          <div class="KeyboardRow">
+              <span class="KeyboardKey" (click)="useKeyboard('/')">/</span>
+              <span class="KeyboardKey" (click)="useKeyboard('')">'</span>
+              <span class="KeyboardKey" (click)="useKeyboard('`')">`</span>
+              <span class="KeyboardKey" (click)="useKeyboard('<')"><</span>
+              <span class="KeyboardKey" (click)="useKeyboard('>')">></span>
+              <span class="KeyboardKey" (click)="useKeyboard('`')">~</span>
+          </div>
+        </div>
+
+        <div *ngIf="!specialkeys">
+          <div class="KeyboardRow">
+              <span class="KeyboardKey" (click)="useKeyboard('q')">Q</span>
+              <span class="KeyboardKey" (click)="useKeyboard('w')">W</span>
+              <span class="KeyboardKey" (click)="useKeyboard('e')">E</span>
+              <span class="KeyboardKey" (click)="useKeyboard('r')">R</span>
+              <span class="KeyboardKey" (click)="useKeyboard('t')">T</span>
+              <span class="KeyboardKey" (click)="useKeyboard('y')">Y</span>
+          </div>
+          <div class="KeyboardRow">
+              <span class="KeyboardKey" (click)="useKeyboard('u')">U</span>
+              <span class="KeyboardKey" (click)="useKeyboard('i')">I</span>
+              <span class="KeyboardKey" (click)="useKeyboard('o')">O</span>
+              <span class="KeyboardKey" (click)="useKeyboard('p')">P</span>
+              <span class="KeyboardKey" (click)="useKeyboard('a')">A</span>
+              <span class="KeyboardKey" (click)="useKeyboard('s')">S</span>
+          </div>
+          <div class="KeyboardRow">
+              <span class="KeyboardKey" (click)="useKeyboard('d')">D</span>
+              <span class="KeyboardKey" (click)="useKeyboard('f')">F</span>
+              <span class="KeyboardKey" (click)="useKeyboard('g')">G</span>
+              <span class="KeyboardKey" (click)="useKeyboard('h')">H</span>
+              <span class="KeyboardKey" (click)="useKeyboard('j')">J</span>
+              <span class="KeyboardKey" (click)="useKeyboard('k')">K</span>
+          </div>
+          <div class="KeyboardRow">
+              <span class="KeyboardKey" (click)="useKeyboard('l')">L</span>
+              <span class="KeyboardKey" (click)="useKeyboard('z')">Z</span>
+              <span class="KeyboardKey" (click)="useKeyboard('x')">X</span>
+              <span class="KeyboardKey" (click)="useKeyboard('c')">C</span>
+              <span class="KeyboardKey" (click)="useKeyboard('v')">V</span>
+              <span class="KeyboardKey" (click)="useKeyboard('b')">B</span>
+          </div>
+          <div class="KeyboardRow">
+              <span class="KeyboardKey" (click)="useKeyboard('#')">#</span>
+              <span class="KeyboardKey" (click)="useKeyboard('@')">@</span>
+              <span class="KeyboardKey" (click)="useKeyboard('$')">$</span>
+              <span class="KeyboardKey" (click)="useKeyboard('?')">?</span>
+              <span class="KeyboardKey" (click)="useKeyboard('n')">N</span>
+              <span class="KeyboardKey" (click)="useKeyboard('m')">M</span>
+          </div>
+        </div>
+
+        <div class="KeyboardRow">
+            <span class="KeyboardKey serious" (mousedown)="useBackspace()"  style="text-transform: none;">Backspace</span>
+
+
+            <span *ngIf="specialkeys">
+              <span class="KeyboardKey" (click)="useKeyboard('(')">(</span>
+              <span class="KeyboardKey" (click)="useKeyboard(')')">)</span>
+            </span>
+
+            <span *ngIf="!specialkeys">
+              <span class="KeyboardKey" (click)="useKeyboard('.')">.</span>
+              <span class="KeyboardKey" (click)="useKeyboard(',')">,</span>
+            </span>
+
+            <span class="KeyboardKey specmiore" (click)="moreicons()">
+              <i class="icon-more"></i>
+            </span>
+
+            <span class="KeyboardKey serious" (click)="activateshift()"  style="text-transform: none;">Shift</span>
+        </div>
+
+        <div class="KeyboardRow">
+            <span class="KeyboardKey megaserious" (click)="useKeyboard(' ')" style="text-transform: none;">Space</span>
+        </div>
+      </div>
+
+
+      <div class="scrollablecritters" *ngIf="!setupKeyboard && !setupKeypad" [ngClass]="{'rightCritters' : handRight}">
+        <div *ngFor="let critter of critters">
+          <img src="assets/critters/{{critter}}.jpg" (click)="selectCritter(critter)"/>
+        </div>
+        <div class="bottomspace"></div>
+      </div>
+
+      <div class="logotext" *ngIf="!signinFormContinue">
+
+        <i class="icon-cube"></i><br /><br />
+
+        Welcome to SensePadjr. <br />
+        <h2>Please select a companion to begin.</h2>
+
+      </div>
+    </div>
+  </div>
+</ion-content>

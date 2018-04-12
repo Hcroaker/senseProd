@@ -1,0 +1,336 @@
+page-welcome {
+  .coreback{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    background: #ECF0F1;
+  }
+
+  .infocard{
+    width: 80vw;
+    height: 70vh;
+
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+
+    background: #fff;
+    border-radius: 10px;
+    top: 15%;
+
+    position: absolute;
+    overflow: hidden;
+  }
+
+  .scrollablecritters{
+    height: 100.7%;
+    width: 50%;
+    border-radius: 10px;
+
+    overflow: scroll;
+    flex-wrap: wrap;
+    display: flex;
+    margin-left: 3%;
+
+    padding-top: 3%;
+
+    img{
+      width: 20vw;
+      height: 25vh;
+      margin: 0;
+      object-fit: cover;
+
+    }
+  }
+
+  .rightCritters{
+    float: right;
+    margin-left: 90vw;
+  }
+
+  .scrollablecritters::-webkit-scrollbar {
+      width: 0px;
+      background: transparent;
+  }
+
+  .selectedcritter{
+    text-align: center;
+    font-size: 44px;
+    position: absolute;
+    margin-left: 50vw;
+    top: 4%;
+    font-family: 'Neucha', cursive;
+
+    .selectcritname{
+      text-transform: uppercase;
+      color: #ff6348;
+    }
+
+    .logofront{
+      width: 35vw;
+      height: 32vh;
+
+      object-fit: contain;
+    }
+
+    input{
+      box-shadow: 0px 0px 10px #8e8e8e;
+      border: none;
+      border-radius: 5px;
+      padding: 4%;
+      margin-top: 10%;
+      font-size: 18px;
+      width: 23vw;
+    	font-family: 'Neucha', cursive;
+    }
+
+    button{
+      border: none;
+      border-radius: 5px;
+      padding: 3%;
+      font-size: 0.45em;
+    	font-family: 'Neucha', cursive;
+      text-transform: uppercase;
+      color: #fff;
+      width: 11vw;
+      margin-top: 4%;
+    }
+
+    .continue{
+      display: inline-flex;
+      text-align: center;
+      display:table-cell;
+      vertical-align:middle;
+      background: #97CE68;
+    }
+
+    .back{
+      display: inline-flex;
+      text-align: center;
+      display:table-cell;
+      vertical-align:middle;
+      background: #E3C39D;
+    }
+
+    .handselect{
+      .leftsidebox{
+        width:  150px;
+        height: 27vh;
+        margin-top: 1vh;
+        background-color: rgba(131,214,222, 0.5);
+        border-radius: 10px;
+        display: inline-flex;
+
+
+        .hand{
+          width:50%;
+          object-fit: contain;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 15%;
+        }
+      }
+
+      .rightsidebox{
+        width:  150px;
+        height: 27vh;
+        margin-top: 3vh;
+        background-color: rgba(151,206,104, 0.5);
+        border-radius: 10px;
+        display: inline-flex;
+
+        .hand{
+          -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+          filter: FlipH;
+
+          width:50%;
+          object-fit: contain;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 15%;
+        }
+      }
+
+      p{
+          position: absolute;
+          text-align: center;
+          margin-top: 1.5vh;
+          font-size: 16px;
+          margin-left: 1.5vw;
+        	font-family: 'Neucha', cursive;
+          color: #847858;
+      }
+
+      .hand{
+        object-fit: cover;
+        object-position: 85% 40%;
+        height: 22vh;
+        margin-top: 1vh;
+      }
+    }
+  }
+
+
+  .leftContents{
+    margin-left: 0vw;
+  }
+
+
+  .bottomspace{
+    height: 10%;
+    width: 100%;
+  }
+
+
+  .logotext{
+    position: absolute;
+    left: 0%;
+    top: 20%;
+    right: 0;
+    margin-left: 57%;
+    margin-right: auto;
+    font-family: 'Amatic SC', cursive;
+    font-size: 52px;
+    width:60%;
+    color: #FE938C;
+
+    i{
+        font-size: 74px;
+        color: #4281A4;
+    }
+
+    h2{
+  	   font-family: 'Neucha', cursive;
+      font-size: 26px;
+      color: #E6B89C;
+      width: 50%;
+    }
+  }
+
+
+  .mainkeyboard{
+  	text-transform: lowercase;
+    width: 60%;
+    height: 100%;
+    overflow: hidden;
+    margin-top: 8%;
+    margin-left: 3%;
+  }
+
+  .rightKeyboard{
+    float: right;
+
+    left: 41%;
+    position: absolute;
+  }
+
+  .KeyboardKey {
+  	display: inline-block;
+  	border: 1px solid #dcdcdc;
+  	background: #fff;
+  	padding: 10px;
+  	margin-bottom: 5px;
+  	border-radius: 6px;
+  	cursor: pointer;
+  	display: inline-block;
+  	color: #777777;
+  	font-family: arial;
+  	font-size: 18px;
+  	font-weight: bold;
+  	font-style: normal;
+  	height: 7vh;
+  	line-height: 4.5vh;
+  	width: 6.85vw;
+  	text-decoration: none;
+  	text-align: center;
+  	font-family: 'Neucha', cursive;
+  }
+
+  .keypad{
+    margin-left: 20%;
+    margin-top: 10%;
+
+    .KeyboardKey{
+      margin: 4px;
+      margin-top: 10px;
+
+      height: 75px;
+      width: 80px;
+
+      line-height: 7vh;
+      font-size: 21px;
+
+    }
+  }
+
+  .rightKeytab{
+      margin-left: -35vw !important;
+  }
+
+  .KeyboardRow{
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+
+  .uppershift{
+  	text-transform: uppercase;
+  }
+
+  .serious{
+  	width: 133px;
+  }
+
+  .megaserious{
+  	width: 88.5%;
+  	margin-top: 1vh;
+  }
+
+  .KeyboardKey:active {
+  	background-color: #dfdfdf;
+  }
+
+  .inputholders{
+    width: 300px;
+    height: 70px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    margin-top: 20%;
+    padding: 1%;
+    padding-left: 15.5%;
+    display: inline-flex;
+
+    h2{
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      position: absolute;
+      text-align: center;
+      font-size: 13px;
+      color: #57606f;
+      margin-top: -3vh;
+      margin-left:1vh;
+      text-transform: lowercase;
+    }
+  }
+
+  .inputbox{
+    width: 30px;
+    height: 30px;
+    display: block;
+    text-align: center;
+    border-radius: 2px;
+    margin: 10px;
+
+    border: 2px dotted #97CE68;
+  }
+}

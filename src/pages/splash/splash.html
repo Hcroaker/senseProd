@@ -1,0 +1,33 @@
+
+
+<h2>{{today| date:'shortTime'}} {{today| date:'shortDate'}}</h2>
+<h3>Learn Freely</h3>
+<h1>SensePad</h1>
+
+<div class="inputholders">
+  <span class="inputbox animated" [ngClass]="{'tada': fillcounter == 5, 'jello': fillcounter == 1}" [style.border] = "fillcounter > 0 ? '2px solid #ced6e0' : '2px dotted #ced6e0'" [style.background] = "fillcounter > 0 ? '#ced6e0' : 'none'"></span>
+  <span class="inputbox animated" [ngClass]="{'tada': fillcounter == 5, 'jello': fillcounter == 2}" [style.border] = "fillcounter > 1 ? '2px solid #ced6e0' : '2px dotted #ced6e0'" [style.background] = "fillcounter > 1 ? '#ced6e0' : 'none'"></span>
+  <span class="inputbox animated" [ngClass]="{'tada': fillcounter == 5, 'jello': fillcounter == 3}" [style.border] = "fillcounter > 2 ? '2px solid #ced6e0' : '2px dotted #ced6e0'" [style.background] = "fillcounter > 2 ? '#ced6e0' : 'none'"></span>
+  <span class="inputbox animated" [ngClass]="{'tada': fillcounter == 5}" [style.border] = "fillcounter > 3 ? '2px solid #ced6e0' : '2px dotted #ced6e0'" [style.background] = "fillcounter > 3 ? '#ced6e0' : 'none'"></span>
+</div>
+
+<div class="keypad">
+  <div class="KeyboardRow">
+      <span class="KeyboardKey" (click)="keyClick('1')" [style.background] = "tkeyClick == 1 ? '#dff9fb' : '#fff'">1</span>
+      <span class="KeyboardKey" (click)="keyClick('2')" [style.background] = "tkeyClick == 2 ? '#dff9fb' : '#fff'">2</span>
+      <span class="KeyboardKey" (click)="keyClick('3')" [style.background] = "tkeyClick == 3 ? '#dff9fb' : '#fff'">3</span>
+  </div>
+  <div class="KeyboardRow">
+      <span class="KeyboardKey" (click)="keyClick('4')" [style.background] = "tkeyClick == 4 ? '#dff9fb' : '#fff'">4</span>
+      <span class="KeyboardKey" (click)="keyClick('5')" [style.background] = "tkeyClick == 5 ? '#dff9fb' : '#fff'">5</span>
+      <span class="KeyboardKey" (click)="keyClick('6')" [style.background] = "tkeyClick == 6 ? '#dff9fb' : '#fff'">6</span>
+  </div>
+  <div class="KeyboardRow">
+      <span class="KeyboardKey" (click)="keyClick('7')" [style.background] = "tkeyClick == 7 ? '#dff9fb' : '#fff'">7</span>
+      <span class="KeyboardKey" (click)="keyClick('8')" [style.background] = "tkeyClick == 8 ? '#dff9fb' : '#fff'">8</span>
+      <span class="KeyboardKey" (click)="keyClick('9')" [style.background] = "tkeyClick == 9 ? '#dff9fb' : '#fff'">9</span>
+  </div>
+  <div class="KeyboardRow">
+      <span class="KeyboardKey" (click)="keyClick('0')"  [style.background] = "tkeyClick == 0 ? '#dff9fb' : '#fff'">0</span>
+  </div>
+</div>

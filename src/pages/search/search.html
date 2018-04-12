@@ -1,18 +1,132 @@
-<!--
-  Generated template for the SearchPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>search</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
 <ion-content padding>
+      <img src="assets/imgs/orca1024.png" class="orcaLogo" (click)="splashTrigger()"/>
+
+      <input placeholder="Search anything..." class="searcherInput"  value="{{theValue}}" autofocus />
+
+      <div class="contentcard" absolute-drag startLeft="200" startTop="300" >
+        <h1>Title</h1>
+        <p>BODY OF TEXT</p>
+      </div>
+
+      <div class="mainkeyboard" absolute-drag startLeft="700" startTop="300" [ngClass]="{'uppershift' : hitshift}">
+
+        <div *ngIf="specialkeys">
+          <div class="KeyboardRow">
+              <span class="KeyboardKey" (click)="useKeyboard('0')" (swipe)="useKeyboard('0')" (press)="useKeyboard('0')">0</span>
+              <span class="KeyboardKey" (click)="useKeyboard('1')" (swipe)="useKeyboard('1')" (press)="useKeyboard('1')">1</span>
+              <span class="KeyboardKey" (click)="useKeyboard('2')" (swipe)="useKeyboard('2')" (press)="useKeyboard('2')">2</span>
+              <span class="KeyboardKey" (click)="useKeyboard('3')" (swipe)="useKeyboard('3')" (press)="useKeyboard('3')">3</span>
+              <span class="KeyboardKey" (click)="useKeyboard('4')" (swipe)="useKeyboard('4')" (press)="useKeyboard('4')">4</span>
+              <span class="KeyboardKey" (click)="useKeyboard('5')" (swipe)="useKeyboard('5')" (press)="useKeyboard('5')">5</span>
+          </div>
+          <div class="KeyboardRow">
+              <span class="KeyboardKey" (click)="useKeyboard('6')" (swipe)="useKeyboard('6')" (press)="useKeyboard('6')">6</span>
+              <span class="KeyboardKey" (click)="useKeyboard('7')" (swipe)="useKeyboard('7')" (press)="useKeyboard('7')">7</span>
+              <span class="KeyboardKey" (click)="useKeyboard('8')" (swipe)="useKeyboard('8')" (press)="useKeyboard('8')">8</span>
+              <span class="KeyboardKey" (click)="useKeyboard('9')" (swipe)="useKeyboard('9')" (press)="useKeyboard('9')">9</span>
+              <span class="KeyboardKey" (click)="useKeyboard('!')" (swipe)="useKeyboard('!')" (press)="useKeyboard('!')">!</span>
+              <span class="KeyboardKey" (click)="useKeyboard('%')" (swipe)="useKeyboard('%')" (press)="useKeyboard('%')">%</span>
+          </div>
+          <div class="KeyboardRow">
+              <span class="KeyboardKey" (click)="useKeyboard('')" (swipe)="useKeyboard('')" (press)="useKeyboard('')">"</span>
+              <span class="KeyboardKey" (click)="useKeyboard(':')" (swipe)="useKeyboard('d')" (press)="useKeyboard(':')">:</span>
+              <span class="KeyboardKey" (click)="useKeyboard(';')" (swipe)="useKeyboard('d')" (press)="useKeyboard(';')">;</span>
+              <span class="KeyboardKey" (click)="useKeyboard('^')" (swipe)="useKeyboard('^')" (press)="useKeyboard('^')">^</span>
+              <span class="KeyboardKey" (click)="useKeyboard('&')" (swipe)="useKeyboard('&')" (press)="useKeyboard('&')">&</span>
+              <span class="KeyboardKey" (click)="useKeyboard('*')" (swipe)="useKeyboard('*')" (press)="useKeyboard('*')">*</span>
+          </div>
+          <div class="KeyboardRow">
+              <span class="KeyboardKey" (click)="useKeyboard('[')" (swipe)="useKeyboard('[')" (press)="useKeyboard('[')">[</span>
+              <span class="KeyboardKey" (click)="useKeyboard(']')" (swipe)="useKeyboard(']')" (press)="useKeyboard(']')">]</span>
+              <span class="KeyboardKey" (click)="useKeyboard('-')" (swipe)="useKeyboard('-')" (press)="useKeyboard('-')">-</span>
+              <span class="KeyboardKey" (click)="useKeyboard('+')" (swipe)="useKeyboard('+')" (press)="useKeyboard('+')">+</span>
+              <span class="KeyboardKey" (click)="useKeyboard('/')" (swipe)="useKeyboard('/')" (press)="useKeyboard('/')">/</span>
+              <span class="KeyboardKey" (click)="useKeyboard('=')" (swipe)="useKeyboard('=')" (press)="useKeyboard('=')">=</span>
+          </div>
+
+          <div class="KeyboardRow">
+              <span class="KeyboardKey" (click)="useKeyboard('/')" (swipe)="useKeyboard('/')" (press)="useKeyboard('/')">/</span>
+              <span class="KeyboardKey" (click)="useKeyboard('')" (swipe)="useKeyboard('')" (press)="useKeyboard('')">'</span>
+              <span class="KeyboardKey" (click)="useKeyboard('`')" (swipe)="useKeyboard('`')" (press)="useKeyboard('`')">`</span>
+              <span class="KeyboardKey" (click)="useKeyboard('<')" (swipe)="useKeyboard('<')" (press)="useKeyboard('<')"><</span>
+              <span class="KeyboardKey" (click)="useKeyboard('>')" (swipe)="useKeyboard('>')" (press)="useKeyboard('>')">></span>
+              <span class="KeyboardKey" (click)="useKeyboard('~')" (swipe)="useKeyboard('~')" (press)="useKeyboard('~')">~</span>
+          </div>
+        </div>
+
+        <div *ngIf="!specialkeys">
+          <div class="KeyboardRow">
+              <span class="KeyboardKey" (click)="useKeyboard('q')" (swipe)="useKeyboard('q')" (press)="useKeyboard('q')">Q</span>
+              <span class="KeyboardKey" (click)="useKeyboard('w')" (swipe)="useKeyboard('w')" (press)="useKeyboard('w')">W</span>
+              <span class="KeyboardKey" (click)="useKeyboard('e')" (swipe)="useKeyboard('e')" (press)="useKeyboard('e')">E</span>
+              <span class="KeyboardKey" (click)="useKeyboard('r')" (swipe)="useKeyboard('r')" (press)="useKeyboard('r')">R</span>
+              <span class="KeyboardKey" (click)="useKeyboard('t')" (swipe)="useKeyboard('t')" (press)="useKeyboard('t')">T</span>
+              <span class="KeyboardKey" (click)="useKeyboard('y')" (swipe)="useKeyboard('y')" (press)="useKeyboard('y')">Y</span>
+          </div>
+          <div class="KeyboardRow">
+              <span class="KeyboardKey" (click)="useKeyboard('u')" (swipe)="useKeyboard('u')" (press)="useKeyboard('u')">U</span>
+              <span class="KeyboardKey" (click)="useKeyboard('i')" (swipe)="useKeyboard('i')" (press)="useKeyboard('i')">I</span>
+              <span class="KeyboardKey" (click)="useKeyboard('o')" (swipe)="useKeyboard('o')" (press)="useKeyboard('o')">O</span>
+              <span class="KeyboardKey" (click)="useKeyboard('p')" (swipe)="useKeyboard('p')" (press)="useKeyboard('p')">P</span>
+              <span class="KeyboardKey" (click)="useKeyboard('a')" (swipe)="useKeyboard('a')" (press)="useKeyboard('a')">A</span>
+              <span class="KeyboardKey" (click)="useKeyboard('s')" (swipe)="useKeyboard('s')" (press)="useKeyboard('s')">S</span>
+          </div>
+          <div class="KeyboardRow">
+              <span class="KeyboardKey" (click)="useKeyboard('d')" (swipe)="useKeyboard('d')" (press)="useKeyboard('d')">D</span>
+              <span class="KeyboardKey" (click)="useKeyboard('f')" (swipe)="useKeyboard('f')" (press)="useKeyboard('f')">F</span>
+              <span class="KeyboardKey" (click)="useKeyboard('g')" (swipe)="useKeyboard('g')" (press)="useKeyboard('g')">G</span>
+              <span class="KeyboardKey" (click)="useKeyboard('h')" (swipe)="useKeyboard('h')" (press)="useKeyboard('h')">H</span>
+              <span class="KeyboardKey" (click)="useKeyboard('j')" (swipe)="useKeyboard('j')" (press)="useKeyboard('j')">J</span>
+              <span class="KeyboardKey" (click)="useKeyboard('k')" (swipe)="useKeyboard('k')" (press)="useKeyboard('k')">K</span>
+          </div>
+          <div class="KeyboardRow">
+              <span class="KeyboardKey" (click)="useKeyboard('l')" (swipe)="useKeyboard('l')" (press)="useKeyboard('l')">L</span>
+              <span class="KeyboardKey" (click)="useKeyboard('z')" (swipe)="useKeyboard('z')" (press)="useKeyboard('z')">Z</span>
+              <span class="KeyboardKey" (click)="useKeyboard('x')" (swipe)="useKeyboard('x')" (press)="useKeyboard('x')">X</span>
+              <span class="KeyboardKey" (click)="useKeyboard('c')" (swipe)="useKeyboard('c')" (press)="useKeyboard('c')">C</span>
+              <span class="KeyboardKey" (click)="useKeyboard('v')" (swipe)="useKeyboard('v')" (press)="useKeyboard('v')">V</span>
+              <span class="KeyboardKey" (click)="useKeyboard('b')" (swipe)="useKeyboard('b')" (press)="useKeyboard('b')">B</span>
+          </div>
+          <div class="KeyboardRow">
+              <span class="KeyboardKey" (click)="useKeyboard('#')" (swipe)="useKeyboard('#')" (press)="useKeyboard('#')">#</span>
+              <span class="KeyboardKey" (click)="useKeyboard('@')" (swipe)="useKeyboard('@')" (press)="useKeyboard('@')">@</span>
+              <span class="KeyboardKey" (click)="useKeyboard('$')" (swipe)="useKeyboard('$')" (press)="useKeyboard('$(')">$</span>
+              <span class="KeyboardKey" (click)="useKeyboard('?')" (swipe)="useKeyboard('?')" (press)="useKeyboard('?')">?</span>
+              <span class="KeyboardKey" (click)="useKeyboard('n')" (swipe)="useKeyboard('n')" (press)="useKeyboard('n')">N</span>
+              <span class="KeyboardKey" (click)="useKeyboard('m')" (swipe)="useKeyboard('m')" (press)="useKeyboard('m')">M</span>
+          </div>
+        </div>
+
+        <div class="KeyboardRow">
+            <span class="KeyboardKey serious" (tap)="useBackspace($event)" (swipe)="useBackspace($event)" (press)="useBackspace($event)"  style="text-transform: none;">Backspace</span>
+
+
+            <span *ngIf="specialkeys">
+              <span class="KeyboardKey" (tap)="useKeyboard('(')" (swipe)="useKeyboard('(')" (press)="useKeyboard('(')">(</span>
+              <span class="KeyboardKey" (tap)="useKeyboard(')')" (swipe)="useKeyboard(')')" (press)="useKeyboard(')')">)</span>
+            </span>
+
+            <span *ngIf="!specialkeys">
+              <span class="KeyboardKey" (tap)="useKeyboard('.')" (swipe)="useKeyboard('.')" (press)="useKeyboard('.')">.</span>
+              <span class="KeyboardKey" (tap)="useKeyboard(',')" (swipe)="useKeyboard(',')" (press)="useKeyboard(',')">,</span>
+            </span>
+
+            <span class="KeyboardKey specmiore" (click)="moreicons()"  (swipe)="moreicons()" (press)="moreicons()">
+              <i class="icon-more"></i>
+            </span>
+
+            <span class="KeyboardKey serious" (click)="activateshift()" (press)="activatecaps()"  style="text-transform: none;"><label *ngIf="!hitcaps">Shift</label><label *ngIf="hitcaps">Caps</label></span>
+        </div>
+
+        <div class="KeyboardRow">
+            <span class="KeyboardKey megaserious" (click)="useKeyboard(' ')"   (swipe)="useKeyboard(' ')" (press)="useKeyboard(' ')" style="text-transform: none;">Space</span>
+        </div>
+
+
+        <div class="KeyboardRow">
+            <span class="KeyboardKey megaserious searchanything" (click)="searchSense()"   (swipe)="searchSense()" (press)="searchSense()" style="text-transform: none;">Search SensePad</span>
+        </div>
+
+      </div>
 
 </ion-content>
