@@ -16,7 +16,7 @@ page-splash {
     margin-top: 5%;
     position: absolute;
     font-family: 'Nunito', sans-serif;
-    font-weight: 400;
+    font-weight: 300;
   }
 
   h3{
@@ -26,7 +26,20 @@ page-splash {
     margin-top: 5%;
     position: absolute;
     font-family: 'Nunito', sans-serif;
-    font-weight: 400;
+    font-weight: 300;
+  }
+
+  h4{
+    font-size: 18px;
+    text-align: center;
+    color: #f1f2f6;
+    margin-top: 1%;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+
+    i{
+      font-size: 14px;
+    }
   }
 
   .keypad{
