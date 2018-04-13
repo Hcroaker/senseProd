@@ -84,4 +84,10 @@
     <plugin name="cordova-plugin-vibration" spec="^3.0.1" />
     <engine name="android" spec="~6.2.3" />
     <allow-navigation href="http://192.168.100.198:8100" />
+    <plugin name="ionic-plugin-deeplinks" spec="^1.0.15">
+        <variable name="URL_SCHEME" value="myapp" />
+        <variable name="DEEPLINK_SCHEME" value="https" />
+        <variable name="DEEPLINK_HOST" value="example.com" />
+        <variable name="ANDROID_PATH_PREFIX" value="/" />
+    </plugin>
 </widget>

@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Vibration } from '@ionic-native/vibration';
+import { Deeplinks } from '@ionic-native/deeplinks';
 
 import { MyApp } from './app.component';
 import { SearchPage } from '../pages/search/search';
@@ -36,6 +37,7 @@ import { AbsoluteDrag } from '../directives/absolute-drag/absolute-drag';
     StatusBar,
     SplashScreen,
     Vibration,
+    Deeplinks,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     SearchProvider
   ]
