@@ -199,6 +199,17 @@ page-welcome {
     width:60%;
     color: #FE938C;
 
+    a{
+      font-size: 13px;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 300;
+        text-decoration: none;
+        color: #70a1ff;
+        margin-top: 9vh;
+        position: absolute;
+        border-bottom: 1px dotted #70a1ff;
+    }
+
     i{
         font-size: 74px;
         color: #4281A4;
